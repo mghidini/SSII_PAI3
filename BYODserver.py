@@ -17,16 +17,16 @@ serverSocket.bind((HOST, PORT))
 serverSocket.listen()
 print("Server listening:")
 
-while (True):
+while True:
     # Keep accepting connections from clients
     (clientConnection, clientAddress) = serverSocket.accept()
 
     # Make the socket connection to the clients secure through SSLSocket
     secureClientSocket = ssl.wrap_socket(clientConnection,
                                          server_side=True,
-                                         ca_certs="",
-                                         certfile="",
-                                         keyfile="",
+                                         ca_certs="CA.pem",
+                                         certfile="certif.crt",
+                                         keyfile="keys.key",
                                          cert_reqs=ssl.CERT_REQUIRED,
                                          ssl_version=ssl.PROTOCOL_TLSv1_2)
 
