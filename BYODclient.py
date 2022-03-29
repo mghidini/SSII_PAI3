@@ -9,8 +9,6 @@ HOST = "127.0.0.1"
 # HOST = "25.35.53.183"  # SERVER: Gabriele - Hamachi IPV4
 PORT = 3030  # The port used by the server
 
-print('insert amount')
-
 # Create an SSL context
 context = ssl.SSLContext(ssl.PROTOCOL_TLS_CLIENT)
 context.verify_mode = ssl.CERT_REQUIRED
