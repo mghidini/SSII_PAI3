@@ -33,11 +33,12 @@ while True:
         connstream.close()
         break
     connstream.sendall(b"[SERVER] User logged in successfully. Welcome!")
-    data = connstream.recv(1024)
-    data = data.decode("utf-8")
-    if data:
-        print("pieno")
-    else:
-        print("vuoto")
+    while True:
+        data = connstream.recv(1024)
+        data = data.decode("utf-8")
+        if data:
+            print("[CLIENT]: ",data)
+            connstream.sendall(b"[SERVER] Message received.")
+
 
 
